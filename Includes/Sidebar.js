@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   View, Text, TouchableOpacity, Image, StyleSheet, Picker, Dimensions,LogBox ,ImageBackground, TextInput, Linking, AsyncStorage
 } from 'react-native';
-import { Ionicons, EvilIcons, MaterialIcons, Entypo, FontAwesome5, AntDesign,SimpleLineIcons } from '@expo/vector-icons';
+import { Fontisto } from '@expo/vector-icons';
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
 // import { URL } from '../constants/API'
@@ -48,60 +48,73 @@ export default class SideBar extends Component {
   render() {
     return (
 
-      <View style={{ flex: 1, alignItems: "center", backgroundColor: "#fff" }}>
+      <View style={{ flex: 1, alignItems: "center", backgroundColor: "#4b89dc" }}>
        <View style={{ width: "100%",flexDirection:"row", }}>  
   
-        <View style={{ width: "70%",  }}>
+        <View style={{ width: "50%",alignItems:"center",marginTop:50  }}>
 
-        <Text style={{ fontWeight: "bold", fontSize: 30, marginLeft:10,marginTop:85,color: "#C93434"}}>{this.state.first_name} {this.state.last_name} </Text>
+        <View style={styles.box} >
+
+    <Image style={{ width: "100%", height: "100%", resizeMode: "cover", borderRadius: 80 }} source={require('../assets/images/Assets/Testimonials_image.png')} />
+  <TouchableOpacity style={{ position: "absolute", bottom: 2, right: -5, borderWidth: 1, borderColor: "#fff", borderRadius: 50, padding: 6, backgroundColor: "#F0F0F0" }} 
+  onPress={() => this.pickImage()}>
+
+<Image style={styles.menu} source={require('../assets/images/icons/via_email.png')} />
+  </TouchableOpacity>
+</View>
 </View>
   
+<TouchableOpacity style={{ width: "50%",marginTop:80,marginHorizontal:8 }} 
+
+onPress={() => this.props.navigation.push('rider_statistics')} >
+
+<Text style={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" }}>Doreen julye</Text>
+          <Text style={{ fontSize: 12, color: "#ffffff" ,paddingTop:10}}>Lorem ipsum dumy</Text>
+        </TouchableOpacity>
        
           </View>
 
-          {/* <View style={{ width: "100%", marginLeft:150,marginTop:120,position:"absolute" }}>  
-        <View style={{width:"35%",backgroundColor: "#D6FBDb", borderRadius:5,paddingBottom:2, marginLeft:80,}}> 
-        <Text style={{ color: '#10B128', textAlign: "center", marginTop: 2, fontSize: 11, fontWeight: "bold" }}>Ready for orders</Text>
-        </View> 
-          </View> */}
-{this.state.auth ? (
-  <TouchableOpacity style={{ width: "90%", marginTop: 40, paddingBottom: 10, paddingLeft: 15, borderBottomWidth: 1, borderColor: "#E3E3E3" }} onPress={() => this.props.navigation.push('login')}>
-          <Text style={{ fontSize: 18, fontWeight: "bold", color: "#1294D0 " }}>Sign In</Text>
+      
+
+  <TouchableOpacity style={{ width: "70%", marginTop: 30, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} onPress={() => this.props.navigation.push('rider_dashboard')} >
+  <Image style={styles.menu} source={require('../assets/images/icons/home.png')} />
+          <Text style={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" ,marginLeft:15}}>Home</Text>
         </TouchableOpacity>
-):(
-  <TouchableOpacity style={{ width: "90%", marginTop: 30, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} onPress={() => this.props.navigation.push('rider_dashboard')} >
-    <Ionicons name="home-outline" size={20} color="black" />
-          <Text style={{ fontSize: 18, fontWeight: "bold", color: "#393939" ,marginLeft:15}}>Home</Text>
-        </TouchableOpacity>
-)
-}
+
         
-        <TouchableOpacity style={{ width: "90%", marginTop: 30, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} onPress={() => this.props.navigation.push('rider_statistics')} >
-        <Ionicons name="stats-chart-outline" size={20} color="black" />
-          <Text style={{ fontSize: 18, fontWeight: "bold", color: "#393939" ,marginLeft:15}}>Statistics</Text>
+        <TouchableOpacity style={{ width: "70%", marginTop: 10, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} onPress={() => this.props.navigation.push('rider_statistics')} >
+        <Image style={styles.menu} source={require('../assets/images/icons/how-it-works-icon.png')} />
+
+          <Text style={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" ,marginLeft:15}}>How it Works</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={{ width: "90%", marginTop: 30, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} onPress={() => this.props.navigation.push('change_password_rider')} >
-        <MaterialIcons name="lock-outline" size={19} color="#393939" />
-          <Text style={{ fontSize: 18, fontWeight: "bold", color: "#393939" ,marginLeft:15}}>Change Password</Text>
+        <TouchableOpacity style={{ width: "70%", marginTop: 20, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} onPress={() => this.props.navigation.push('change_password_rider')} >
+        <Image style={styles.menu} source={require('../assets/images/icons/review_icon.png')} />
+
+          <Text style={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" ,marginLeft:15}}>Client Reviews</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={{ width: "90%", marginTop: 30, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} onPress={() => this.props.navigation.push('rider_receipts')} >
-        <Ionicons name="receipt-outline"  size={20} color="black" />
-          <Text style={{ fontSize: 18, fontWeight: "bold", color: "#393939" ,marginLeft:15}}>My Receipt</Text>
+        <TouchableOpacity style={{ width: "70%", marginTop: 20, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} onPress={() => this.props.navigation.push('rider_receipts')} >
+        <Image style={styles.menu} source={require('../assets/images/icons/messages-icon.png')} />
+          <Text style={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" ,marginLeft:15}}>Messages</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={{ width: "90%", marginTop: 30, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} onPress={() => this.props.navigation.push('profile')} >
-        <MaterialIcons name="receipt-long"  size={20} color="black" />
-          <Text style={{ fontSize: 18, fontWeight: "bold", color: "#393939" ,marginLeft:15}}>Term & Conditions</Text>
+        <TouchableOpacity style={{ width: "70%", marginTop: 20, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} onPress={() => this.props.navigation.push('profile')} >
+        <Image style={styles.menu} source={require('../assets/images/icons/profile.png')} />
+          <Text style={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" ,marginLeft:15}}>Profile</Text>
         </TouchableOpacity>
        
-       
-        <TouchableOpacity style={{ width: "90%", marginTop: 30,  paddingLeft: 1,flexDirection:"row" }} 
-         onPress={() => this.logout()}>
-        <SimpleLineIcons name="logout" size={21} color="#C93434" />
-          <Text style={{ fontSize: 18, fontWeight: "bold", color: "#C93434" ,marginLeft:15}}>Log out</Text>
+        <TouchableOpacity style={{ width: "70%", marginTop: 20, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} onPress={() => this.props.navigation.push('profile')} >
+        <Image style={styles.menu} source={require('../assets/images/icons/setting.png')} />
+          <Text style={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" ,marginLeft:15}}>Settings</Text>
         </TouchableOpacity>
+
+        <TouchableOpacity style={{ width: "70%", marginTop: 20, paddingBottom: 10, paddingLeft: 1,flexDirection:"row" }} onPress={() => this.props.navigation.push('profile')} >
+        <Image style={styles.menu} source={require('../assets/images/icons/logout.png')} />
+          <Text style={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" ,marginLeft:15}}>Log Out</Text>
+        </TouchableOpacity>
+       
+      
         
       </View>
 
@@ -111,33 +124,19 @@ export default class SideBar extends Component {
 
 }
 const styles = StyleSheet.create({
-  pic: {
+ 
+  menu:{
+    width: 20, height: 20,resizeMode:"contain"
+  },
+  box: {
 
-
-    height: 250,
-    width: "100%",
+    width: 130,
+    height: 130,
+    borderRadius: 80
+    , borderWidth: 3, borderColor: "#fff",
+    // position:"absolute"
 
 
   },
-  login_button: {
-    width: "90%",
-
-    marginTop: 10,
-    paddingVertical: 13,
-    alignItems: "center",
-    alignContent: "center",
-    backgroundColor: "#808080",
-    borderRadius: 10
-  },
-  facebook: {
-
-    width: "90%",
-
-    marginTop: 30,
-    paddingVertical: 13,
-    alignItems: "center",
-    alignContent: "center",
-    backgroundColor: "#005f9A",
-    borderRadius: 10
-  },
+ 
 });

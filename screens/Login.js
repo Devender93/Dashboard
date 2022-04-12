@@ -93,7 +93,7 @@ export default class Login extends Component {
             </View>
             <View style={{ width: "100%",marginTop:10  }}>
           <TouchableOpacity style={{width:"95%", }}
-          // onPress={() => this.props.navigation.navigate("forgot_password")}
+          onPress={() => this.props.navigation.push("Forgot_Password")}
           >
           <Text style={{ fontWeight: "bold", fontSize: 14, color:"#974d06",textAlign:"right"  }}>Forgot Password? </Text>
 
@@ -101,7 +101,7 @@ export default class Login extends Component {
 <View style={{width:"100%",alignItems:"center",paddingBottom:10}}>
 
           <TouchableOpacity style={styles.SignUp_button} 
-          // onPress={() => this.submit()}
+         onPress={()=>this.props.navigation.push("OurBuyer")}
           >
             <View style={{alignItems:"center",flexDirection:"row"}}>
             <View>

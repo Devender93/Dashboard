@@ -57,7 +57,7 @@ export default class SideBar extends Component {
 
     <Image style={{ width: "100%", height: "100%", resizeMode: "cover", borderRadius: 80 }} source={require('../assets/images/Assets/Testimonials_image.png')} />
   <TouchableOpacity style={{ position: "absolute", bottom: 2, right: -5, borderWidth: 1, borderColor: "#fff", borderRadius: 50, padding: 6, backgroundColor: "#F0F0F0" }} 
-  onPress={() => this.pickImage()}>
+  >
 
 <Image style={styles.menu} source={require('../assets/images/icons/via_email.png')} />
   </TouchableOpacity>
@@ -66,7 +66,7 @@ export default class SideBar extends Component {
   
 <TouchableOpacity style={{ width: "50%",marginTop:80,marginHorizontal:8 }} 
 
-onPress={() => this.props.navigation.push('rider_statistics')} >
+onPress={() => this.props.navigation.push('help')} >
 
 <Text style={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" }}>Doreen julye</Text>
           <Text style={{ fontSize: 12, color: "#ffffff" ,paddingTop:10}}>Lorem ipsum dumy</Text>
@@ -76,40 +76,58 @@ onPress={() => this.props.navigation.push('rider_statistics')} >
 
       
 
-  <TouchableOpacity style={{ width: "70%", marginTop: 30, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} onPress={() => this.props.navigation.push('rider_dashboard')} >
+  <TouchableOpacity style={{ width: "70%", marginTop: 30, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }}
+   onPress={() => this.props.navigation.push('OurBuyer')} >
   <Image style={styles.menu} source={require('../assets/images/icons/home.png')} />
           <Text style={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" ,marginLeft:15}}>Home</Text>
         </TouchableOpacity>
 
         
-        <TouchableOpacity style={{ width: "70%", marginTop: 10, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} onPress={() => this.props.navigation.push('rider_statistics')} >
+        <TouchableOpacity style={{ width: "70%", marginTop: 10, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} 
+        onPress={() => this.props.navigation.push('Work')} >
         <Image style={styles.menu} source={require('../assets/images/icons/how-it-works-icon.png')} />
 
           <Text style={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" ,marginLeft:15}}>How it Works</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={{ width: "70%", marginTop: 20, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} onPress={() => this.props.navigation.push('change_password_rider')} >
+        <TouchableOpacity style={{ width: "70%", marginTop: 20, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }}
+         onPress={() => this.props.navigation.push('Testimonial')} >
         <Image style={styles.menu} source={require('../assets/images/icons/review_icon.png')} />
 
           <Text style={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" ,marginLeft:15}}>Client Reviews</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={{ width: "70%", marginTop: 20, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} onPress={() => this.props.navigation.push('rider_receipts')} >
+        <TouchableOpacity style={{ width: "70%", marginTop: 20, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }}
+         onPress={() => this.props.navigation.push('Messages')} >
         <Image style={styles.menu} source={require('../assets/images/icons/messages-icon.png')} />
           <Text style={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" ,marginLeft:15}}>Messages</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={{ width: "70%", marginTop: 20, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} onPress={() => this.props.navigation.push('profile')} >
+        <TouchableOpacity style={{ width: "70%", marginTop: 20, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} 
+        onPress={() => this.props.navigation.push('Profile')} >
         <Image style={styles.menu} source={require('../assets/images/icons/profile.png')} />
           <Text style={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" ,marginLeft:15}}>Profile</Text>
         </TouchableOpacity>
        
-        <TouchableOpacity style={{ width: "70%", marginTop: 20, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} onPress={() => this.props.navigation.push('profile')} >
+        <TouchableOpacity style={{ width: "70%", marginTop: 20, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} 
+        onPress={() => this.props.navigation.push('AppSetting')} >
         <Image style={styles.menu} source={require('../assets/images/icons/setting.png')} />
           <Text style={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" ,marginLeft:15}}>Settings</Text>
         </TouchableOpacity>
+        <TouchableOpacity style={{ width: "70%", marginTop: 20, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }}
+         onPress={() => this.props.navigation.push('OurSeller')} >
+        <Image style={styles.menu} source={require('../assets/images/icons/setting.png')} />
+          <Text style={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" ,marginLeft:15}}>OurSeller</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={{ width: "70%", marginTop: 20, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} 
+        onPress={() => this.props.navigation.push('OurStory')} >
+        <Image style={styles.menu} source={require('../assets/images/icons/setting.png')} />
+          <Text style={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" ,marginLeft:15}}>OurStory</Text>
+        </TouchableOpacity>
 
-        <TouchableOpacity style={{ width: "70%", marginTop: 20, paddingBottom: 10, paddingLeft: 1,flexDirection:"row" }} onPress={() => this.props.navigation.push('profile')} >
+
+        <TouchableOpacity style={{ width: "70%", marginTop: 20, paddingBottom: 10, paddingLeft: 1,flexDirection:"row" }}
+         onPress={() => this.props.navigation.push('splash')} >
         <Image style={styles.menu} source={require('../assets/images/icons/logout.png')} />
           <Text style={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" ,marginLeft:15}}>Log Out</Text>
         </TouchableOpacity>

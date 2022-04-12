@@ -88,22 +88,27 @@ export default class AppSetting extends Component {
               <View style={{ width: "90%" }}>
               <Text style={{color:"#000",fontWeight:"bold",fontSize:15}}>FAQ</Text>
              </View>
-             <View style={{ width: "10%",paddingTop:2 }}>
+             <TouchableOpacity style={{ width: "10%",paddingTop:2 }}
+             onPress={()=>this.props.navigation.push("FAQ")}
+             >
              <View style={{ width: "60%",marginLeft:"auto" }}>
              <AntDesign name="right" size={18} color="black" />
              </View>
-             </View>
+             </TouchableOpacity>
              </View>
 
              <View style={{ width: "100%",flexDirection:"row",padding:10,borderBottomColor: "#ff9815", borderBottomWidth: 0.5}}>
               <View style={{ width: "90%" }}>
               <Text style={{color:"#000",fontWeight:"bold",fontSize:15}}>Contact us</Text>
              </View>
-             <View style={{ width: "10%",paddingTop:2 }}>
+             <TouchableOpacity style={{ width: "10%",paddingTop:2 }}
+             onPress={()=>this.props.navigation.push("help")}
+             
+             >
              <View style={{ width: "60%",marginLeft:"auto" }}>
              <AntDesign name="right" size={18} color="black" />
              </View>
-             </View>
+             </TouchableOpacity>
              </View>
 
              <View style={{ width: "100%",flexDirection:"row",padding:10}}>

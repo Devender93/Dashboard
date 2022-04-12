@@ -9,7 +9,7 @@ import { Drawer, } from 'native-base';
 import SideBar from '../Includes/Sidebar'
 LogBox.ignoreAllLogs(true)
 import ToggleSwitch from 'toggle-switch-react-native'
-export default class Profile extends Component {
+export default class EditProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,7 +53,7 @@ export default class Profile extends Component {
 
               <View style={{ width: "100%", padding: 10, backgroundColor: 'rgba(52, 52, 52, 0.8)' }}>
                 <View style={{ width: "90%" }}>
-                  <Text style={{ color: "#ff9815", fontWeight: "bold", fontSize: 15 }}>PROFILE</Text>
+                  <Text style={{ color: "#ff9815", fontWeight: "bold", fontSize: 15 }}>EDIT PROFILE</Text>
                 </View>
                 <View style={{ width: "100%", paddingTop: 5 }}>
                   <Text style={{ color: "#fff", fontSize: 12 }}>Denzel Hayes Washington Jr. (born December 28, 1954) is an American actor, director,
@@ -123,54 +123,8 @@ export default class Profile extends Component {
                     </View>
                   </View>
                 </View>
-                <View style={{ width: "100%", marginTop: 10 }}>
-                  <View style={{ width: "90%", flexDirection: "row", borderBottomWidth: 1, borderBottomColor: "#ff9815", paddingBottom: 3 }}>
-                    <View style={{ width: "30%", marginHorizontal: 5, justifyContent: "center" }}>
-                      <Text style={{ fontWeight: "bold", fontSize: 12, color: "#ff9815" }}>
-                        Date of Birth
-                      </Text>
-                    </View>
-                    <View style={{ width: "70%", justifyContent: "center" }}>
-                      <TextInput
-                        style={{
-                          color: "#fff",
-                          fontSize: 12,
-                          paddingHorizontal: 15,
-                          fontWeight: "bold"
-                        }}
-                        keyboardType="email-address"
-                        placeholder={": DD/MM/YYYY"}
-                        placeholderTextColor="#fff"
-                        onChangeText={(dob) => this.setState({ dob })}
-                        value={this.state.dob}
-                      />
-                    </View>
-                  </View>
-                </View>
-                <View style={{ width: "100%", marginTop: 10 }}>
-                  <View style={{ width: "90%", flexDirection: "row", borderBottomWidth: 1, borderBottomColor: "#ff9815", paddingBottom: 3 }}>
-                    <View style={{ width: "30%", marginHorizontal: 5, justifyContent: "center" }}>
-                      <Text style={{ fontWeight: "bold", fontSize: 12, color: "#ff9815" }}>
-                        Gender
-                      </Text>
-                    </View>
-                    <View style={{ width: "70%", justifyContent: "center" }}>
-                      <TextInput
-                        style={{
-                          color: "#fff",
-                          fontSize: 12,
-                          paddingHorizontal: 15,
-                          fontWeight: "bold"
-                        }}
-                        keyboardType="email-address"
-                        placeholder={": Gender"}
-                        placeholderTextColor="#fff"
-                        onChangeText={(gender) => this.setState({ gender})}
-                        value={this.state.gender}
-                      />
-                    </View>
-                  </View>
-                </View>
+              
+            
                 <View style={{ width: "100%", marginTop: 10 }}>
                   <View style={{ width: "90%", flexDirection: "row", borderBottomWidth: 1, borderBottomColor: "#ff9815", paddingBottom: 3 }}>
                     <View style={{ width: "30%", marginHorizontal: 5, justifyContent: "center" }}>
@@ -195,30 +149,7 @@ export default class Profile extends Component {
                     </View>
                   </View>
                 </View>
-                <View style={{ width: "100%", marginTop: 10 }}>
-                  <View style={{ width: "90%", flexDirection: "row", borderBottomWidth: 1, borderBottomColor: "#ff9815", paddingBottom: 3 }}>
-                    <View style={{ width: "30%", marginHorizontal: 5, justifyContent: "center" }}>
-                      <Text style={{ fontWeight: "bold", fontSize: 12, color: "#ff9815" }}>
-                        Zip
-                      </Text>
-                    </View>
-                    <View style={{ width: "70%", justifyContent: "center" }}>
-                      <TextInput
-                        style={{
-                          color: "#fff",
-                          fontSize: 12,
-                          paddingHorizontal: 15,
-                          fontWeight: "bold"
-                        }}
-                        keyboardType="email-address"
-                        placeholder={": Zip Code"}
-                        placeholderTextColor="#fff"
-                        onChangeText={(email) => this.setState({ email })}
-                        value={this.state.email}
-                      />
-                    </View>
-                  </View>
-                </View>
+               
                 <View style={{ width: "100%", marginTop: 10 }}>
                   <View style={{ width: "90%", flexDirection: "row", borderBottomWidth: 1, borderBottomColor: "#ff9815", paddingBottom: 3 }}>
                     <View style={{ width: "30%", marginHorizontal: 5, justifyContent: "center" }}>
@@ -249,7 +180,7 @@ export default class Profile extends Component {
 onPress={() => this.props.navigation.push("OurBuyer")}
 >
   <View style={{alignItems:"center"}}>
-  <Text style={{ color:"#ff9815",fontWeight:"bold",textAlign:"center",fontSize:18 }}>UPDATE</Text>
+  <Text style={{ color:"#ff9815",fontWeight:"bold",textAlign:"center",fontSize:18 }}>SUBMIT</Text>
  
   </View>
 </TouchableOpacity>

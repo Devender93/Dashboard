@@ -69,7 +69,8 @@ export default class Forgot_Password extends Component {
 <View style={{width:"100%",alignItems:"center",paddingBottom:10,marginTop:20}}>
 
           <TouchableOpacity style={styles.SignUp_button} 
-          // onPress={() => this.submit()}
+                onPress={() => this.props.navigation.push("Login")}
+
           >
             <View style={{alignItems:"center",flexDirection:"row"}}>
             <View>

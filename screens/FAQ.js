@@ -17,6 +17,7 @@ export default class FAQ extends Component {
       drop_down:false,
       drop_down1:false,
       drop_down2:false,
+      drop_down3:false,
       Password:""
    
     }
@@ -34,6 +35,9 @@ export default class FAQ extends Component {
   }
   drop_down2=()=>{
     this.setState({drop_down2:!this.state.drop_down2})
+  }
+  drop_down3=()=>{
+    this.setState({drop_down3:!this.state.drop_down3})
   }
   render() {
 
@@ -73,7 +77,7 @@ export default class FAQ extends Component {
       <View style={{width:"95%",backgroundColor:"#272C2C",marginTop:20,borderWidth:2,borderColor:"white",borderRadius:5,paddingVertical:5,flexDirection:"row"}}>
       <View style={{width:"90%"}}>
       <Text style={{fontSize:14,fontWeight:"bold",color:"#FB9414",marginLeft:5}}>
-      Lorem Ipsum Dummy?
+      Is my personal information safe on this app?
       </Text>
       </View>
       <TouchableOpacity style={{width:"10%"}} onPress={()=>this.drop_down()}>
@@ -84,7 +88,8 @@ export default class FAQ extends Component {
 {this.state.drop_down ? (
   <View style={{width:"95%",backgroundColor:"#fff",borderWidth:2,borderColor:"white",paddingVertical:5,borderRadius:5}}>
   <Text style={{fontSize:14,color:"#000",marginLeft:5}}>
-     Lorem Ipsum Dummy Lorem Ipsum Dummy Lorem Ipsum DummyLorem Ipsum Dummy
+  We take every step on our end to make the Transaction Dashboard safe, secure, and resistant to threats using industry-standard data protection. Remember, the biggest privacy threats usually come from your own network!
+
   </Text>
 </View>
 ):null}
@@ -95,7 +100,7 @@ export default class FAQ extends Component {
       <View style={{width:"95%",backgroundColor:"#272C2C",marginTop:5,borderWidth:2,borderColor:"white",borderRadius:5,paddingVertical:5,flexDirection:"row"}}>
       <View style={{width:"90%"}}>
       <Text style={{fontSize:14,fontWeight:"bold",color:"#FB9414",marginLeft:5}}>
-      Lorem Ipsum Dummy?
+      Are agreements made on this app legal and final?
       </Text>
       </View>
       <TouchableOpacity style={{width:"10%"}} onPress={()=>this.drop_down1()}>
@@ -106,7 +111,8 @@ export default class FAQ extends Component {
 {this.state.drop_down1 ? (
   <View style={{width:"95%",backgroundColor:"#fff",borderWidth:2,borderColor:"white",paddingVertical:5,borderRadius:5}}>
   <Text style={{fontSize:14,color:"#000",marginLeft:5}}>
-     Lorem Ipsum Dummy Lorem Ipsum Dummy Lorem Ipsum DummyLorem Ipsum Dummy
+  All real estate transactions must be signed and authorized by the appropriate parties to be fully legal. Like a verbal agreement, this app is mostly a tool for communication.
+
   </Text>
 </View>
 ):null}
@@ -116,7 +122,7 @@ export default class FAQ extends Component {
       <View style={{width:"95%",backgroundColor:"#272C2C",marginTop:5,borderWidth:2,borderColor:"white",borderRadius:5,paddingVertical:5,flexDirection:"row"}}>
       <View style={{width:"90%"}}>
       <Text style={{fontSize:14,fontWeight:"bold",color:"#FB9414",marginLeft:5}}>
-      Lorem Ipsum Dummy?
+      Do I have to pay to use this app?
       </Text>
       </View>
       <TouchableOpacity style={{width:"10%"}} onPress={()=>this.drop_down2()}>
@@ -127,7 +133,29 @@ export default class FAQ extends Component {
 {this.state.drop_down2 ? (
   <View style={{width:"95%",backgroundColor:"#fff",borderWidth:2,borderColor:"white",paddingVertical:5,borderRadius:5}}>
   <Text style={{fontSize:14,color:"#000",marginLeft:5}}>
-     Lorem Ipsum Dummy Lorem Ipsum Dummy Lorem Ipsum DummyLorem Ipsum Dummy
+  Absolutely not! The Transaction Dashboard is free. Your home purchase is a different story!
+  </Text>
+</View>
+):null}
+
+</View>
+
+<View style={{width:"100%",alignItems:"center"}}>
+      <View style={{width:"95%",backgroundColor:"#272C2C",marginTop:5,borderWidth:2,borderColor:"white",borderRadius:5,paddingVertical:5,flexDirection:"row"}}>
+      <View style={{width:"90%"}}>
+      <Text style={{fontSize:14,fontWeight:"bold",color:"#FB9414",marginLeft:5}}>
+      I don’t like apps or technology. Can I just talk to a real estate agent?
+      </Text>
+      </View>
+      <TouchableOpacity style={{width:"10%"}} onPress={()=>this.drop_down3()}>
+      <AntDesign name="caretdown" size={15} color="#FB9414" />
+
+      </TouchableOpacity>
+</View>
+{this.state.drop_down3 ? (
+  <View style={{width:"95%",backgroundColor:"#fff",borderWidth:2,borderColor:"white",paddingVertical:5,borderRadius:5}}>
+  <Text style={{fontSize:14,color:"#000",marginLeft:5}}>
+  Absolutely. While many customers love the Transaction Dashboard, we offer traditional real estate services by phone or in-person as well.
   </Text>
 </View>
 ):null}

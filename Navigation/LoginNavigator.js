@@ -15,18 +15,16 @@ import OurStory from '../screens/OurStory';
 import splash from '../screens/splash';
 import Work from '../screens/Work';
 import EditProfile from '../screens/EditProfile';
-import SellerLogin from "../screens/SellerLogin";
 
 
 
 
 const Stack = createStackNavigator();
-export default function AppNavigator() {
+export default function LoginNavigator() {
   return (
     <NavigationContainer>
-      <Stack.Navigator   screenOptions={{ headerShown: false}} initialRouteName="splash">
+      <Stack.Navigator   screenOptions={{ headerShown: false}} initialRouteName="Work">
         <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="SellerLogin" component={SellerLogin} />
         <Stack.Screen name="Forgot_Password" component={Forgot_Password} />
         <Stack.Screen name="AppSetting" component={AppSetting} />
         <Stack.Screen name="OurBuyer" component={OurBuyer} />

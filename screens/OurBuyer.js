@@ -51,20 +51,14 @@ export default class OurBuyer extends Component {
                 <Text style={{color:"#ff9815",fontWeight:"bold",fontSize:15}}>OUR BUYER</Text>
               </View>
               <View style={{ width: "100%" ,paddingTop:5 }}>
-                <Text style={{color:"#fff",fontSize:12}}>Denzel Hayes Washington Jr. (born December 28, 1954) 
-                is an American actor, director, and producer. Known for his performances on the screen and stage, he has
-                 been described as an actor who reconfigured "the concept of classic movie stardom".[1] He has frequently
-                  collaborated with directors Spike Lee, Antoine Fuqua, and Tony Scott. He has earned various awards, 
-                  including two Academy Awards, three Golden Globe Awards, a Screen Actors Guild Award, and a Tony Award.[2]
-                   In 2016, he received the Cecil B. DeMille Lifetime Achievement Award. In 2020, The New York Times ranked
-                    him as the greatest actor of the twenty-first century</Text>
+                <Text style={{color:"#fff",fontSize:12}}>Are you looking for an amazing home or property in New Jersey? From starter homes to retirement units, there are so many great properties for sale! The Transaction Dashboard helps you keep track of them. Add information about your favorite properties, send messages to sellers, and follow your sale from “interested” to “closed!”</Text>
               </View>
               <View style={{ width: "100%" }} >
                  <Image style={styles.buyer_seller} source={require('../assets/images/Buyer_or_seller_image.png')} />
               </View>
-              <View style={{ width: "100%" ,paddingTop:5 }}>
+              {/* <View style={{ width: "100%" ,paddingTop:5 }}>
                 <Text style={{color:"#fff",fontSize:12}}>Denzel Hayes Washington Jr. (born December 28, 1954) is an American actor, director, and producer. Known for his performances on the screen and stage, he has been described as an actor who reconfigured "the concept of classic movie stardom".[1] He has frequently collaborated with directors Spike Lee, Antoine Fuqua, and Tony Scott. He has earned various awards, including two Academy Awards, three Golden Globe Awards, a Screen Actors Guild Award, and a Tony Award.[2] In 2016, he received the Cecil B. DeMille Lifetime Achievement Award. In 2020, The New York Times ranked him as the greatest actor of the twenty-first century</Text>
-              </View>
+              </View> */}
               
               </View>
            

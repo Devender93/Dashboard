@@ -6,9 +6,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { MaterialIcons,AntDesign } from '@expo/vector-icons';
 import { Drawer, } from 'native-base';
 import SideBar from '../Includes/Sidebar'
-import { buyerLoginRequest, sellerLoginRequest } from '../services/auth';
+import { sellerLoginRequest } from '../services/auth';
 
-export default class Login extends Component {
+export default class SellerLogin extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,7 +39,7 @@ export default class Login extends Component {
   formData.append("email",email)
   formData.append("password",password)
   
-  const res = buyerLoginRequest(formData)
+  const res = sellerLoginRequest(formData)
   .then(res => res.json())
   .then(async response => {
    
@@ -55,7 +55,7 @@ export default class Login extends Component {
         );
       }else{
         AsyncStorage.setItem("user_data", JSON.stringify(response.user));
-        AsyncStorage.setItem("account_type", "buyer");
+        AsyncStorage.setItem("account_type", "seller");
         this.props.navigation.reset({
           index: 0,
           routes: [{ name: 'Work' }],

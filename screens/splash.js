@@ -52,12 +52,14 @@ export default class splash extends Component {
         </View>
       </View>
       <TouchableOpacity style={styles.button} onPress={()=>this.props.navigation.push("Login")}>
-        <Text style={styles.button_text}>LOG IN</Text>
+        <Text style={styles.button_text}>LOG IN AS BUYER</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button2} onPress={()=>this.props.navigation.push("SellerLogin")}>
+        <Text style={styles.button_text}>LOG IN AS SELLER</Text>
       </TouchableOpacity>
       <View style={styles.footer_container}>
         <Text style={{textAlign:"center"}}>
-          Aliquip id amet laborum suntAliquip id amet laborum officia labore
-          fugiat dolore commodo.
+        What’s the status of your real estate transaction? Find out easily with the Transaction Dashboard, your one-stop shop for all the news and information you need.
         </Text>
       </View>
     </ImageBackground>
@@ -128,7 +130,18 @@ const styles = StyleSheet.create({
   button: {
     position: "absolute",
     bottom : 220,
-    width: "30%",
+    width: "50%",
+    marginTop: 15,
+    paddingVertical: 5,
+    alignItems: "center",
+    borderBottomColor: "#fff",
+    backgroundColor: "#202020",
+    borderWidth: 3
+  },
+  button2: {
+    position: "absolute",
+    bottom : 180,
+    width: "50%",
     marginTop: 15,
     paddingVertical: 5,
     alignItems: "center",

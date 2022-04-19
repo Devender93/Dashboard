@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import {
-  View, Text, TouchableOpacity, Image, StyleSheet, Picker, Dimensions,LogBox ,ImageBackground, TextInput, Linking, AsyncStorage
+  View, Text, TouchableOpacity, Image, StyleSheet, Picker, Dimensions,LogBox ,ImageBackground, TextInput, Linking,
 } from 'react-native';
-import { Fontisto } from '@expo/vector-icons';
-const screenWidth = Dimensions.get('window').width;
-const screenHeight = Dimensions.get('window').height;
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 // import { URL } from '../constants/API'
 LogBox.ignoreAllLogs(true)
 
@@ -28,20 +27,15 @@ export default class SideBar extends Component {
     });
   }    
   logout = () => {
-    AsyncStorage.clear();
-    this.props.navigation.push('welcome');
+    AsyncStorage.removeItem("user_data");
+    this.props.navigation.reset({
+      index: 0,
+      routes: [{ name: 'splash' }],
+    });
 
   }
-  async componentDidMount() {
-    AsyncStorage.getItem("userID").then(user_data => {
-      const val = JSON.parse(user_data);
-     
-      if (val) {
-        this.setState({rider_id:val.data.id,first_name:val.data.first_name
-          ,last_name:val.data.last_name
-        })
-      }
-    });
+   componentDidMount() {
+  
  
   }
 
@@ -104,7 +98,9 @@ onPress={() => this.props.navigation.push('help')} >
         </TouchableOpacity>
 
         <TouchableOpacity style={{ width: "70%", marginTop: 20, paddingBottom: 10, paddingLeft: 1, borderBottomWidth: 1, borderColor: "#E3E3E3",flexDirection:"row" }} 
-        onPress={() => this.props.navigation.push('Profile')} >
+        onPress={() => this.props.navigation.push('EditProfile')} 
+        // onPress={() => this.props.navigation.push('Profile')} 
+        >
         <Image style={styles.menu} source={require('../assets/images/icons/profile.png')} />
           <Text style={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" ,marginLeft:15}}>Profile</Text>
         </TouchableOpacity>
@@ -127,7 +123,7 @@ onPress={() => this.props.navigation.push('help')} >
 
 
         <TouchableOpacity style={{ width: "70%", marginTop: 20, paddingBottom: 10, paddingLeft: 1,flexDirection:"row" }}
-         onPress={() => this.props.navigation.push('splash')} >
+         onPress={() => this.logout()} >
         <Image style={styles.menu} source={require('../assets/images/icons/logout.png')} />
           <Text style={{ fontSize: 18, fontWeight: "bold", color: "#ffffff" ,marginLeft:15}}>Log Out</Text>
         </TouchableOpacity>

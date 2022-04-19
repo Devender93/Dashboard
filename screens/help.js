@@ -70,7 +70,7 @@ export default class help extends Component {
 
         <View style={styles.text_container}>
           <Text style={styles.text}>
-            Lorem Ipsum Dummy Text Including Lorem
+          Contact A Realtor
           </Text>
         </View>
 
@@ -248,8 +248,7 @@ export default class help extends Component {
             </View>
 
             <Text style={styles.help_text_container}>
-              If you have Question or need help regarding on issue with your loan,
-              please use the contact information below
+            Need help with the app, or have a real estate question? Our Realtors are ready to help!
             </Text>
 
             <View style={styles.bottom_bar_container}>
@@ -366,8 +365,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     paddingVertical: 15,
     backgroundColor: "#FB9414",
+    alignItems:"center"
   },
-  text: { fontSize: 16, color: "#000", marginLeft: 12, fontWeight: "bold" },
+  text: { fontSize: 16, color: "#000", marginLeft: 12, fontWeight: "bold", textAlign:"center" },
   bar_transparent: {
     width: "100%",
     backgroundColor: 'transparent',

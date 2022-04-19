@@ -1,35 +1,189 @@
 import React, { Component } from 'react';
 import {
-  View, Text, TouchableOpacity, Image, style, StyleSheet, Picker, LogBox, Dimensions, ImageBackground, TextInput, Alert, AsyncStorage, Modal,
+  View, Text, TouchableOpacity, Image, style, StyleSheet, Picker, LogBox, Dimensions, ImageBackground, TextInput, Alert, Modal,
 } from 'react-native';
-import { MaterialIcons, AntDesign } from '@expo/vector-icons';
+import * as ImagePicker from 'expo-image-picker';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
 import { Drawer, } from 'native-base';
 import SideBar from '../Includes/Sidebar'
 LogBox.ignoreAllLogs(true)
 import ToggleSwitch from 'toggle-switch-react-native'
+import { updateBuyerRequest, updateSellerRequest } from '../services/auth';
+import { BUYER_IMAGE_URL } from '../constants/API';
 export default class EditProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
       started: false,
-      name: "",
+      user_id: "",
+      first_name: "",
+      last_name: "",
+      token:"",
       email: "",
-      dob: "",
-      gender: "",
       address: "",
-      zip: "",
+      account_type: "",
       phone: "",
+      status:"",
+      image:"",
+      imageChanged:false
 
     }
 
+  }
+  async componentDidMount(){
+    const val = await AsyncStorage.getItem("user_data");
+    const account_type = await AsyncStorage.getItem("account_type");
+    let user_data = JSON.parse(val);
+
+    this.setState({
+      account_type : account_type,
+      user_id : user_data.id,
+      first_name : user_data.fname,
+      last_name : user_data.lname,
+      email : user_data.email,
+      address : user_data.address,
+      phone : user_data.phone,
+      token : user_data.token,
+      status : user_data.status,
+      image:user_data.image ? BUYER_IMAGE_URL+user_data.image : "" 
+    })
+  }
+   pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.cancelled) {
+      this.setState({image:result.uri, imageChanged:true})
+
+    }
+  };
+  updateUser = async () => {
+    const {user_id, first_name , last_name , email, address, phone, image, imageChanged, token, status} = this.state;
+
+    if(!first_name){
+      alert("Name can't be empty")
+    }
+    if(!email){
+      alert("Name can't be empty")
+    }
+
+    if(first_name && email ){
+    
+   
+
+  let formData = new FormData();
+  formData.append("id",user_id)
+  formData.append("fname",first_name)
+  formData.append("lname",last_name)
+  formData.append("email",email)
+  formData.append("address",address)
+  formData.append("phone",phone)
+
+  if(imageChanged){
+    let random_number = Math.floor(Math.random() * 100000) + 9999 ;
+    const photo = {
+      uri: this.state.image,
+      type: "image/jpeg",
+      name: random_number+".jpeg",
+    };
+    formData.append("file_type", 'image');
+    formData.append("file_data", "form-data");
+    formData.append("image", photo);
+  }
+  if(this.state.account_type == "buyer"){
+    const res = updateBuyerRequest(formData)
+    .then(res => res.json())
+    .then(async response => {
+     
+      if(response.status == "200"){
+        Alert.alert(
+          "Congrats",
+          response.message,
+          [
+            { text: "OK" }
+          ],
+        );
+     
+      AsyncStorage.setItem("user_data", JSON.stringify(response.user));
+        this.props.navigation.reset({
+          index: 0,
+          routes: [{ name: 'Work' }],
+        });
+  
+  
+  
+      }else{
+        Alert.alert(
+          "Sorry",
+          response.message,
+          [
+            { text: "OK" }
+          ],
+        );
+      }
+  
+  
+  })
+  .catch(error => {
+    console.log(error)
+    alert("Failed to update")
+  });
+  }else{
+    const res = updateSellerRequest(formData)
+    .then(res => res.json())
+    .then(async response => {
+     
+      if(response.status == "200"){
+        Alert.alert(
+          "Congrats",
+          response.message,
+          [
+            { text: "OK" }
+          ],
+        );
+     
+      AsyncStorage.setItem("user_data", JSON.stringify(response.user));
+        this.props.navigation.reset({
+          index: 0,
+          routes: [{ name: 'Work' }],
+        });
+  
+  
+  
+      }else{
+        Alert.alert(
+          "Sorry",
+          response.message,
+          [
+            { text: "OK" }
+          ],
+        );
+      }
+  
+  
+  })
+  .catch(error => {
+    console.log(error)
+    alert("Failed to update")
+  });
+  }
+
+    }
   }
   closeDrawer = () => {
     this.drawer._root.close()
   };
   openDrawer = () => { this.drawer._root.open() };
   render() {
+    const { image } = this.state;
 
     return (
       <Drawer ref={(ref) => { this.drawer = ref; }} content={<SideBar navigation={this.props.navigation} />} onClose={() => this.closeDrawer()}  >
@@ -64,10 +218,11 @@ export default class EditProfile extends Component {
                 <View style={{ width: "100%", alignItems: "center", marginTop: 20 }}>
 
                   <View style={styles.box} >
-
-                    <Image style={{ width: "100%", height: "100%", resizeMode: "cover", borderRadius: 80 }} source={require('../assets/images/Assets/Testimonials_image.png')} />
+                  {image ? <Image source={{ uri: image }} style={{ width: "100%", height: "100%", resizeMode: "cover", borderRadius: 80 }} /> :
+                  <Image style={{ width: "100%", height: "100%", resizeMode: "cover", borderRadius: 80 }} source={require('../assets/images/Assets/Testimonials_image.png')} />}
+                    
                     <TouchableOpacity style={{ position: "absolute", bottom: 2, right: -5, borderWidth: 1, borderColor: "#fff", borderRadius: 50, padding: 6, backgroundColor: "#F0F0F0" }}
-                      // onPress={() => this.pickImage()}
+                      onPress={() => this.pickImage()}
                       >
 
                       <Image style={styles.menu} source={require('../assets/images/icons/Edit_icon.png')} />
@@ -79,7 +234,7 @@ export default class EditProfile extends Component {
                   <View style={{ width: "90%", marginTop: 20, flexDirection: "row", borderBottomWidth: 1, borderBottomColor: "#ff9815", paddingBottom: 3 }}>
                     <View style={{ width: "30%", marginHorizontal: 5, justifyContent: "center" }}>
                       <Text style={{ fontWeight: "bold", fontSize: 12, color: "#ff9815" }}>
-                        Name
+                        First Name
                       </Text>
                     </View>
                     <View style={{ width: "70%", justifyContent: "center" }}>
@@ -90,11 +245,35 @@ export default class EditProfile extends Component {
                           paddingHorizontal: 15,
                           fontWeight: "bold"
                         }}
-                        keyboardType="email-address"
-                        placeholder={": Name"}
+                        
+                        placeholder={": First name"}
                         placeholderTextColor="#fff"
-                        onChangeText={(name) => this.setState({ name })}
-                        value={this.state.name}
+                        onChangeText={(first_name) => this.setState({ first_name })}
+                        value={this.state.first_name}
+                      />
+                    </View>
+                  </View>
+                </View>
+                <View style={{ width: "100%", paddingTop: 5 }}>
+                  <View style={{ width: "90%", flexDirection: "row", borderBottomWidth: 1, borderBottomColor: "#ff9815", paddingBottom: 3 }}>
+                    <View style={{ width: "30%", marginHorizontal: 5, justifyContent: "center" }}>
+                      <Text style={{ fontWeight: "bold", fontSize: 12, color: "#ff9815" }}>
+                        Last Name
+                      </Text>
+                    </View>
+                    <View style={{ width: "70%", justifyContent: "center" }}>
+                      <TextInput
+                        style={{
+                          color: "#fff",
+                          fontSize: 12,
+                          paddingHorizontal: 15,
+                          fontWeight: "bold"
+                        }}
+                        
+                        placeholder={": First name"}
+                        placeholderTextColor="#fff"
+                        onChangeText={(last_name) => this.setState({ last_name })}
+                        value={this.state.last_name}
                       />
                     </View>
                   </View>
@@ -177,7 +356,8 @@ export default class EditProfile extends Component {
                 <View style={{width:"100%",alignItems:"center",paddingBottom:10}}>
 
 <TouchableOpacity style={styles.SignUp_button} 
-onPress={() => this.props.navigation.push("OurBuyer")}
+onPress={() => this.updateUser()}
+// onPress={() => this.props.navigation.push("OurBuyer")}
 >
   <View style={{alignItems:"center"}}>
   <Text style={{ color:"#ff9815",fontWeight:"bold",textAlign:"center",fontSize:18 }}>SUBMIT</Text>

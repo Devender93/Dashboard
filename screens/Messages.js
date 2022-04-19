@@ -56,9 +56,7 @@ export default class Messages extends Component {
                   <Text style={{ color: "#ff9815", fontWeight: "bold", fontSize: 15 }}>Messages</Text>
                 </View>
                 <View style={{ width: "100%", paddingTop: 5 }}>
-                  <Text style={{ color: "#fff", fontSize: 12 }}>Denzel Hayes Washington Jr. (born December 28, 1954) is an American actor, director,
-                    and producer. Known for his performances on the screen and stage, he has been described as an actor
-                    who reconfigured "the concept of classic movie
+                  <Text style={{ color: "#fff", fontSize: 12 }}>Have an important message for your seller? Need to inform a buyer about a new development? Communicate with all the members of your real estate team with ease.
                   </Text>
                 </View>
                 <View style={{ width: "100%", alignItems: "center", alignContent: "center" }}>

@@ -70,12 +70,11 @@ export default class Testimonial extends Component {
                   </View>
 
                   <Text style={styles.comment_text_container}>
-                    "If you have Question or need help regarding on issue with your loformation belowIf you have Question or need help regarding on issue with your loan,
-                    please use the contact information below"...
+                    "I knew finding a home in New Jersey’s suburbs would be a challenge, but I never realized how hard it would be to keep track of all the homes I was interested in! The Transaction Dashboard helped me to stay organized and keep track of everything until I made my final decision—and I contacted the seller right through the app to move onto our next steps. So much faster than phone calls and emails, I would recommend this to anyone."
                   </Text>
 
                   <Text style={styles.testimonial_name_heading}>
-                    DOREEN JULYES
+                  Lonnie C., Sparta, NJ
                   </Text>
 
                   <Text style={styles.dummy_text}>
